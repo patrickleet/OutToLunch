@@ -1,0 +1,43 @@
+ul.breadcrumb
+	li 
+		a(href="/") Home
+		span.divider /
+	li Create
+
+div.hero-unit
+	h1 Create
+	p Create an echo for your friends to try to solve.
+
+form(action="/create", method="post").form-horizontal
+	fieldset
+		div.control-group
+			label(for="echoText").control-label Phrase
+			div.controls
+				div.input-append
+					input(type="text", name="echoText", id="echoText", placeholder="Type a short phrase...", maxlength="140").span10	
+					span.add-on 140
+		div.control-group
+			label(for="iterationCount").control-label Maximum Iterations
+			div.controls
+				input(type="text", name="iterationCount", id="iterationCount", value="10", style="display:none")
+				div(data-toggle="buttons-radio").btn-group
+					button(type="button", name="iterations", id="iterations", value="10").btn.span1.active 10
+					button(type="button", name="iterations", id="iterations", value="25").btn.span1 25
+					button(type="button", name="iterations", id="iterations", value="50").btn.span1 50
+					button(type="button", name="iterations", id="iterations", value="100").btn.span1 100
+		div.form-actions
+			input(type="submit", value="Post Echo").btn.btn-primary.span2
+script
+	// on form submit move the active toggle buttons value into the hidden text field for submitting in form data
+	$('form').submit(function(){ 
+		$('input[type="text"][name="iterationCount"]').val($('button[type="button"].active').val());
+		return true; 
+	});
+
+	// monitor the length of the echo text field
+	$('input[type="text"]#echoText').keydown(function(){
+		var $this = $(this);
+		var max = $this.attr('maxlength');
+		var len = $this.val().length;
+		$this.siblings('.add-on').text(max - len);
+	});

@@ -1,0 +1,25 @@
+ul.breadcrumb
+	li 
+		a(href="/") Home
+		span.divider /
+	li Solve
+
+div.hero-unit
+	h1 Solve
+	p Find echoes your friends have created or participated in and try to solve them!
+
+table.table.table-bordered
+	thead
+		tr
+			th Creator
+			th Progress
+			th Solve
+	tbody
+		- each echo in echoes
+			tr
+				td #{echo._creator.displayName}
+				td 
+					div.progress 
+						div.bar(width="#{echo.percent}%")
+				td 
+					a(href="/solve/#{echo._id}").btn.btn-primary.btn-mini Solve

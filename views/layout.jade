@@ -1,0 +1,74 @@
+!!! 5
+html(lang="en")
+    head 
+        title= title 
+        link(rel='stylesheet', href='/less/main.css')
+        link(rel='stylesheet', href='/lib/bootstrap/less/bootstrap.css')
+        link(rel='stylesheet', href='/lib/bootstrap/less/responsive.css')
+        script(src='/js/jquery.1.7.2.min.js') 
+    body
+        header
+            div.navbar.navbar-fixed-top 
+                div.navbar-inner 
+                    div.container
+                        a.btn.btn-navbar(data-toggle="collapse", data-target=".nav-collapse")
+                            span.icon-bar
+                            span.icon-bar
+                            span.icon-bar
+                        a(href='/').brand ECHO
+                        div.btn-group.pull-right
+                            - if (typeof user != 'undefined')
+                                a(href="#", data-toggle="dropdown").btn.dropdown-toggle
+                                    i.icon-user
+                                    &nbsp;
+                                    = user.displayName 
+                                    &nbsp;
+                                    span.caret
+                                ul.dropdown-menu
+                                    li 
+                                        a(href="/auth/facebook/logout") Logout
+                            - else
+                                a(href="/auth/facebook/login").btn
+                                    i.icon-user
+                                    | &nbsp;  
+                                    | Login
+                        div.nav-collapse
+                            ul.nav
+                                - if (typeof active == 'undefined' || active == "home")
+                                    li.active
+                                        a(href='/') Home                                 
+                                - else
+                                    li
+                                        a(href='/') Home                                 
+                                - if (typeof active != 'undefined' && active == "create")
+                                    li.active
+                                        a(href='/create') Create
+                                - else
+                                    li
+                                        a(href='/create') Create
+                                - if (typeof active != 'undefined' && active == "solve")
+                                    li.active
+                                        a(href='/solve') Solve
+                                - else
+                                    li
+                                        a(href='/solve') Solve
+    div.container
+        !=messages()
+        != body 
+        hr
+        footer
+            p &copy; 
+                a(href="emailto:shaun.springer@gmail.com") Shaun Springer
+                | &nbsp;2012
+script(src='/lib/bootstrap/js/bootstrap-alert.js') 
+script(src='/lib/bootstrap/js/bootstrap-button.js') 
+script(src='/lib/bootstrap/js/bootstrap-carousel.js') 
+script(src='/lib/bootstrap/js/bootstrap-collapse.js') 
+script(src='/lib/bootstrap/js/bootstrap-dropdown.js') 
+script(src='/lib/bootstrap/js/bootstrap-modal.js') 
+script(src='/lib/bootstrap/js/bootstrap-scrollspy.js') 
+script(src='/lib/bootstrap/js/bootstrap-tab.js') 
+script(src='/lib/bootstrap/js/bootstrap-tooltip.js') 
+script(src='/lib/bootstrap/js/bootstrap-transition.js') 
+script(src='/lib/bootstrap/js/bootstrap-typeahead.js') 
+script(src='/lib/bootstrap/js/bootstrap-popover.js') 

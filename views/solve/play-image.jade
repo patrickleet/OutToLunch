@@ -1,0 +1,18 @@
+ul.breadcrumb
+  li 
+    a(href="/") Home
+    span.divider /
+  li
+    a(href="/solve") Solve
+    span.divider /
+  li #{echo._creator.displayName}'s Echo
+div.well Phrase: #{echo.text}
+div.draw-wrapper(data-draw)
+  button(data-clear="draw", type="button").btn.btn-default.btn-mini
+    i.icon-repeat
+    | &nbsp Clear
+  canvas(data-draw="canvas", data-colors="#000", width="600px", height="500px").draw
+form
+  div.form-actions
+    button(type="submit").btn.btn-primary.btn-large Echo
+script(src='/lib/bootstrap-plus/bootstrap-plus-draw.js') 

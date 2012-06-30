@@ -1,0 +1,16 @@
+{ "name": "echo"
+, "version": "0.0.1"
+, "engines": ["node >= 0.4.0"]
+, "main": "server.js"
+, "dependencies":
+  { "jade":                     	">= 0"
+  , "express":                  	">= 0"
+  , "mongoose":                 	">= 0"
+  , "passport":                 	">= 0"
+  , "passport-facebook":        	">= 0"
+  , "less":                     	">= 0"
+  , "less-middleware":          	">= 0"
+  , "express-messages-bootstrap": 	">= 0"
+  , "fb":				">= 0" 
+  }
+}

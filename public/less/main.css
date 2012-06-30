@@ -1,0 +1,6 @@
+body{padding-top:60px;padding-bottom:40px;}
+input[type=text].input-elastic{width:100%;box-sizing:border-box;height:28px;}
+.table .progress{margin-bottom:0px;}
+.draw-wrapper{width:100%;margin:0 auto;}
+.draw[data-draw]{border:1px solid #DDD;margin:1em auto;display:block;}
+.btn[data-draw="clear"]{display:block;}
