@@ -4,22 +4,12 @@ module.exports = function(app, express){
 	var fb = require('fb');
 
 	// get the models
-	var User = mongoose.model('User');
-	var Echo = mongoose.model('Echo');
 
 	// View our echos from friends
 	app.get('/user/echoes', ensureAuthenticated, function(req, res){
-	     // get the user
-	     var user = req.user;
-
-		// find our echoes from ourselves
-		var q = Echo.find({ });
-		q.populate('_creator', null, { id: user.id });
-		q.populate('_parent');
-		q.exec(function(err, docs){
-			if (err) throw err;
-			res.render('user', { title: 'Echo // Solve', active: 'solve', user: req.user, echoes: docs });
-		});
+	  // get the user
+	  var user = req.user;
+		res.render('user', { title: 'Out To Lunch', user: req.user });
 	});
 
 	// Simple route middleware to ensure user is authenticated.
